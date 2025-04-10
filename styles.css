@@ -13,7 +13,7 @@ body {
 
 /* Header and Navigation */
 header {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
@@ -58,11 +58,20 @@ nav ul li a:hover {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #3498db, #2c3e50);
+    position: relative;
     color: white;
     text-align: center;
     padding: 8rem 1rem 4rem;
     margin-top: 60px;
+    background-color: #2c3e50;
+}
+
+.hero-overlay {
+    background: rgba(44, 62, 80, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .hero h1 {
@@ -100,13 +109,14 @@ section h2 {
     background: white;
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
     text-align: center;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .service-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
 }
 
 .service-card i {
@@ -127,7 +137,12 @@ section h2 {
     background: white;
     padding: 1.5rem;
     border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
 }
 
 .team-member img {
@@ -136,6 +151,7 @@ section h2 {
     border-radius: 50%;
     margin-bottom: 1rem;
     object-fit: cover;
+    border: 3px solid #3498db;
 }
 
 .team-member .position {
@@ -153,15 +169,18 @@ section h2 {
     justify-items: center;
 }
 
-.clients-grid img {
+.client-logo {
     max-width: 150px;
     height: auto;
     filter: grayscale(100%);
-    transition: filter 0.3s;
+    transition: filter 0.3s, transform 0.3s;
+    opacity: 0.7;
 }
 
-.clients-grid img:hover {
+.client-logo:hover {
     filter: grayscale(0%);
+    transform: scale(1.05);
+    opacity: 1;
 }
 
 /* Advantages Section */
@@ -175,8 +194,13 @@ section h2 {
     background: white;
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
     text-align: center;
+    transition: transform 0.3s;
+}
+
+.advantage-card:hover {
+    transform: translateY(-5px);
 }
 
 .advantage-card i {
@@ -202,6 +226,12 @@ input, select, textarea {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #3498db;
+    outline: none;
 }
 
 textarea {
@@ -272,4 +302,9 @@ footer {
     .hero h1 {
         font-size: 2rem;
     }
-} 
+
+    .team-member img {
+        width: 120px;
+        height: 120px;
+    }
+}
